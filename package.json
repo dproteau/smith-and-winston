@@ -1,0 +1,20 @@
+{
+  "name": "winston-smith",
+  "version": "0.0.1",
+  "description": "Winston Smith is a wrapper around Winston aiming to reduce boilerplate logging code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Winston",
+    "Winston Smith",
+    "Logger",
+    "1984"
+  ],
+  "author": "David Proteau",
+  "license": "MIT",
+  "dependencies": {
+    "winston": "^0.8.3"
+  }
+}
