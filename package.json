@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "Winston Smith is a wrapper around Winston aiming to reduce boilerplate logging code",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dproteau/winston-smith.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
