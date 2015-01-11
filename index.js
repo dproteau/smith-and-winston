@@ -2,6 +2,7 @@
 
 var winston = require('winston');
 var util = require('util');
+var path = require('path');
 winston.emitErrs = true;
 
 
@@ -22,13 +23,24 @@ var defaultConsoleOptions = {
   colorize: true
 };
 
+var defaultColors = {
+  debug: 'cyan',
+  info: 'green',
+  warn: 'yellow',
+  error: 'red'
+};
+
 var Logger = function (options) {
   options = options || {};
 
   var fileOptions = util._extend(defaultFileOptions, options.fileOptions || {});
   var consoleOptions = util._extend(defaultConsoleOptions, options.consoleOptions || {});
+  var colorOptions = util._extend(defaultColors, options.colorOptions || {});
+
+  fileOptions.filename = path.resolve(fileOptions.filename);
 
   return new winston.Logger({
+    colors: colorOptions,
     transports: [
       new winston.transports.File(fileOptions),
       new winston.transports.Console(consoleOptions)
