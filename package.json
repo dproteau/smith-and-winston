@@ -1,7 +1,7 @@
 {
   "name": "winston-smith",
   "version": "0.1.1",
-  "description": "Winston Smith is a wrapper around Winston aiming to reduce boilerplate logging code",
+  "description": "Winston Smith is a wrapper around Winston aiming to reduce configuration code",
   "main": "index.js",
   "repository": {
     "type": "git",
