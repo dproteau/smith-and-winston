@@ -1,8 +1,8 @@
 'use strict';
 
 var winston = require('winston');
-var util = require('util');
 var path = require('path');
+var _ = require('lodash');
 winston.emitErrs = true;
 
 
@@ -33,9 +33,9 @@ var defaultColors = {
 var Logger = function (options) {
   options = options || {};
 
-  var fileOptions = util._extend(defaultFileOptions, options.fileOptions || {});
-  var consoleOptions = util._extend(defaultConsoleOptions, options.consoleOptions || {});
-  var colorOptions = util._extend(defaultColors, options.colorOptions || {});
+  var fileOptions = _.extend(defaultFileOptions, options.file || {});
+  var consoleOptions = _.extend(defaultConsoleOptions, options.console || {});
+  var colorOptions = _.extend(defaultColors, options.colors || {});
 
   fileOptions.filename = path.resolve(fileOptions.filename);
 
