@@ -1,22 +1,21 @@
 {
-  "name": "winston-smith",
+  "name": "smith-and-winston",
   "version": "0.1.1",
-  "description": "Winston Smith is a wrapper around Winston aiming to reduce configuration code",
+  "description": "Smith and Winston is a wrapper around Winston aiming to reduce configuration code",
+  "author": "David Proteau",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dproteau/winston-smith.git"
+    "url": "https://github.com/dproteau/smith-and-winston.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "Winston",
-    "Winston Smith",
-    "Logger",
-    "1984"
+    "Smith and Winston",
+    "Logger"
   ],
-  "author": "David Proteau",
   "license": "MIT",
   "dependencies": {
     "lodash": "^2.4.1",
