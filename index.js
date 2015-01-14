@@ -2,7 +2,7 @@
 
 var winston = require('winston');
 var path = require('path');
-var _ = require('lodash');
+var defaults = require('lodash.defaults');
 winston.emitErrs = true;
 
 
@@ -33,9 +33,9 @@ var defaultColors = {
 var Logger = function (options) {
   options = options || {};
 
-  var fileOptions = _.extend(defaultFileOptions, options.file || {});
-  var consoleOptions = _.extend(defaultConsoleOptions, options.console || {});
-  var colorOptions = _.extend(defaultColors, options.colors || {});
+  var fileOptions = defaults(Object.create(options.file || {}), defaultFileOptions);
+  var consoleOptions = defaults(Object.create(options.console || {}), defaultConsoleOptions);
+  var colorOptions = defaults(Object.create(options.colors || {}), defaultColors);
 
   fileOptions.filename = path.resolve(fileOptions.filename);
 
