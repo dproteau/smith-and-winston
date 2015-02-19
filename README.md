@@ -73,9 +73,6 @@ Default colors:
 ```
 
 
-
-*TODO : complete this section*
-
 ## Licence
 
 MIT. See "LICENSE.MIT".
