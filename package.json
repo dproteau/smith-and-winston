@@ -1,6 +1,6 @@
 {
   "name": "smith-and-winston",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Smith and Winston is a wrapper around Winston aiming to reduce configuration code",
   "author": "David Proteau",
   "main": "index.js",
