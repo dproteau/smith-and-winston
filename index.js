@@ -1,41 +1,18 @@
 'use strict';
 
-var winston = require('winston');
 var path = require('path');
+var winston = require('winston');
 var defaults = require('lodash.defaults');
+var defaultOptions = require('./lib/defaultOptions.js');
 winston.emitErrs = true;
 
-
-var defaultFileOptions = {
-  level: 'info',
-  filename: './logs/mainlog.log',
-  handleExceptions: true,
-  json: true,
-  maxsize: 5242880, //5MB
-  maxFiles: 5,
-  colorize: false
-};
-
-var defaultConsoleOptions = {
-  level: 'debug',
-  handleExceptions: true,
-  json: false,
-  colorize: true
-};
-
-var defaultColors = {
-  debug: 'cyan',
-  info: 'green',
-  warn: 'yellow',
-  error: 'red'
-};
 
 var Logger = function (options) {
   options = options || {};
 
-  var fileOptions = defaults(Object.create(options.file || {}), defaultFileOptions);
-  var consoleOptions = defaults(Object.create(options.console || {}), defaultConsoleOptions);
-  var colorOptions = defaults(Object.create(options.colors || {}), defaultColors);
+  var fileOptions = defaults(Object.create(options.file || {}), defaultOptions.file);
+  var consoleOptions = defaults(Object.create(options.console || {}), defaultOptions.console);
+  var colorOptions = defaults(Object.create(options.colors || {}), defaultOptions.colors);
 
   fileOptions.filename = path.resolve(fileOptions.filename);
 
