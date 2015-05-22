@@ -8,23 +8,41 @@ winston.emitErrs = true;
 
 
 var Logger = function (options) {
-  options = options || {};
-
-  var fileOptions = defaults(Object.create(options.file || {}), defaultOptions.file);
-  var consoleOptions = defaults(Object.create(options.console || {}), defaultOptions.console);
-  var colorOptions = defaults(Object.create(options.colors || {}), defaultOptions.colors);
-
-  fileOptions.filename = path.resolve(fileOptions.filename);
-
-  return new winston.Logger({
-    colors: colorOptions,
-    transports: [
-      new winston.transports.File(fileOptions),
-      new winston.transports.Console(consoleOptions)
-    ],
+  var winstonOptions = {
+    transports: [],
     exitOnError: false
-  })
+  };
+
+  // Merging default options and custom
+  options = options || {};
+  var fileOptions = getExtendedObject(options.file, defaultOptions.file);
+  var consoleOptions = getExtendedObject(options.console, defaultOptions.console);
+  var colorOptions = getExtendedObject(options.colors, defaultOptions.colors);
+
+  if (fileOptions) {
+    fileOptions.filename = path.resolve(fileOptions.filename);
+    winstonOptions.transports.push(new winston.transports.File(fileOptions));
+  }
+  if (consoleOptions) {
+    winstonOptions.transports.push(new winston.transports.Console(consoleOptions));
+  }
+  if (colorOptions) {
+    winstonOptions.colors = colorOptions;
+  }
+
+  return new winston.Logger(winstonOptions)
 };
+
+function getExtendedObject (dest, source) {
+  if (dest === null) {
+    return null;
+  }
+
+  var result = Object.create(dest || {});
+  result = defaults(result, source);
+
+  return result;
+}
 
 module.exports = Logger;
 /*

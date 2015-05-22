@@ -43,7 +43,7 @@ Default file options:
 ```javascript
 {
   level: 'info',
-  filename: './logs/mainlog.log',
+  filename: './logs/app.log',
   handleExceptions: true,
   json: true,
   maxsize: 5242880, //5MB
@@ -56,6 +56,7 @@ Default console options:
 ```javascript
 {
   level: 'debug',
+  timestamp: true,
   handleExceptions: true,
   json: false,
   colorize: true
