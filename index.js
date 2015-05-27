@@ -13,7 +13,8 @@ var Logger = function (options) {
     exitOnError: false
   };
 
-  // Merging default options and custom
+  // Merging default and custom options
+  // TODO : Improve default object handling, we can do better than this
   options = options || {};
   var fileOptions = getExtendedObject(options.file, defaultOptions.file);
   var consoleOptions = getExtendedObject(options.console, defaultOptions.console);

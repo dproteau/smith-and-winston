@@ -28,6 +28,26 @@ var options = {file: {
               }}
 var winston = new Smith(options);
 ```
+## Disabling Defaults
+
+To disable one of the default, just put null.
+
+To get back Winston default colors:
+```javascript
+var Smith = require('smith-and-winston');
+
+var options = {colors: null};
+var winston = new Smith(options);
+```
+
+To disable the File transport:
+```javascript
+var Smith = require('smith-and-winston');
+
+var options = {file: null};
+var winston = new Smith(options);
+```
+
 ## Defaults
 
 Defaults are everything to Smith and Winston.  Here is the basic structure:
