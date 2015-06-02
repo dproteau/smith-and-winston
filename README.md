@@ -62,7 +62,7 @@ Defaults are everything to Smith and Winston.  Here is the basic structure:
 Default file options:
 ```javascript
 {
-  level: 'info',
+  level: 'warn',
   filename: './logs/app.log',
   handleExceptions: true,
   json: true,
